@@ -50,16 +50,7 @@ function miniTpl(template, data) {
     });
 }
 
-// start execution
-let template = document.getElementById('template');
-attemptGetData(data => {
-    if (data.error) {
-        throw new Error(data.error)
-    }
-    let newHtml = miniTpl(template.innerHTML, data);
-    template.innerHTML = newHtml;
-    template.classList.remove('visually-hidden');
-}, err => {
+function renderError(template, err) {
     template.innerHTML = `
     <div class="alert alert-danger" role="alert">
         An error has occured:
@@ -67,4 +58,18 @@ attemptGetData(data => {
     </div>
     `;  
     template.classList.remove('visually-hidden');
+}
+
+// start execution
+let template = document.getElementById('template');
+attemptGetData(data => {
+    if (data.error) {
+        renderError(template, err);
+        return;
+    }
+    let newHtml = miniTpl(template.innerHTML, data);
+    template.innerHTML = newHtml;
+    template.classList.remove('visually-hidden');
+}, err => {
+    renderError(template, err);
 });

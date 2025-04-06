@@ -55,6 +55,7 @@ let template = document.getElementById('template');
 attemptGetData(data => {
     let newHtml = miniTpl(template.innerHTML, data);
     template.innerHTML = newHtml;
+    template.classList.remove('visually-hidden');
 }, err => {
     template.innerHTML = `
     <div class="alert alert-danger" role="alert">
@@ -62,4 +63,5 @@ attemptGetData(data => {
         <pre><code>${JSON.stringify(err)}</code></pre>
     </div>
     `;  
+    template.classList.remove('visually-hidden');
 });

@@ -53,6 +53,9 @@ function miniTpl(template, data) {
 // start execution
 let template = document.getElementById('template');
 attemptGetData(data => {
+    if (data.error) {
+        throw new Error(data.error)
+    }
     let newHtml = miniTpl(template.innerHTML, data);
     template.innerHTML = newHtml;
     template.classList.remove('visually-hidden');

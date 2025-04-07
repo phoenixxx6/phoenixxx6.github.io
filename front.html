@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="common.css">
 </head>
-<body>
-    <div class="container-fluid visually-hidden" id="template">
-        ${display.word_nl}
-    </div>
+<body class="gray-200">
+    <div class="container-fluid visually-hidden dark" id="template">
+        <div class="card h-100 shadow-sm text-white bg-dark">
+            <div class="card-body">
+                <h3 class="display-5">${display.word_nl}</h3>
+                <div class="d-flex flex-row">
+                    <span class="badge bg-secondary">${fn.pos(display)}</span>
+                </div>
+                <hr class="bg-dark">
+                <div class="sentence-hidden fst-italic">
+                    ${fn.selzin(sentences, 'nl')}
+                </div>
+            </div>
+        </div>
+      </div>
     <script src="common.js"></script>
 </body>
 </html>

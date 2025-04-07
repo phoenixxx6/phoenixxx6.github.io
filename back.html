@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="gray-200">
+    <div class="container-fluid visually-hidden dark" id="template">
+        <div class="card h-100 shadow-sm text-white bg-dark">
+            <div class="card-body">
+                <div class="d-flex ">
+                    <h3 class="display-5">
+                        ${prop.article}${display.word_nl} ⟶ ${display.word_en}
+                    </h3>
+                </div>
+                <div class="d-flex flex-row">
+                    <span class="badge bg-secondary">${fn.pos(display)}</span>
+                </div>
+                <hr class="bg-dark">
+                <div class="sentence-shown fst-italic">
+                    ${fn.selzin(sentences, 'nl')} ⟶ ${fn.selzin(sentences, 'en')}
+                </div>
+                <div class="sentence-shown fst-italic">
+                    ${fn.quickBugfix_displayLastSentences(sentences)}
+                </div>
+                <hr class="bg-dark">
+                <div class="input-group mb-3">
+                    <span class="btn-light input-group-text">Conjugation</span>
+                    <button class="btn btn-secondary" type="button" readonly placeholder="">${conjugation.conjugation}</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    <script src="common.js"></script>
+</body>
+</html>

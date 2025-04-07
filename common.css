@@ -1,0 +1,17 @@
+.sentence-hidden > nl, en {
+    background-color: white;
+}
+
+.sentence-shown > nl, en {
+    background: none;
+    font-weight: bold;
+}
+
+/* .align-self-bottom {
+    align-self: flex-end;
+    padding-right: 2mm;
+} */
+
+body {
+    background-color: #6c757d;
+}
